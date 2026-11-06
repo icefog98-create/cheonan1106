@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f8f6" />
+  <meta name="description" content="지역사회 건강과 마음의 회복을 위한 공공보건 실무자의 포트폴리오" />
+  <title>공공보건 포트폴리오 | Mental Health & Public Service</title>
+  <style>
+    :root {
+      --bg: #f7f8f6; --ink: #182c2b; --muted: #667674; --line: #dce5df;
+      --green: #176955; --green-dark: #104c3f; --mint: #d7eae0; --white: #fff;
+      --shadow: 0 24px 70px rgba(29, 70, 57, .075);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Pretendard", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; word-break: keep-all; }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #69bb95; outline-offset: 4px; }
+    .wrap { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
+    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(247,248,246,.88); border-bottom: 1px solid rgba(220,229,223,.8); backdrop-filter: blur(18px); }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { font-size: 15px; font-weight: 800; letter-spacing: -.025em; display: flex; align-items: center; gap: 11px; white-space: nowrap; }
+    .brand-mark { width: 33px; height: 33px; display: inline-grid; place-items: center; color: white; background: var(--green); border-radius: 11px; font-size: 19px; }
+    .nav-links { display: flex; align-items: center; gap: 32px; font-size: 13px; font-weight: 650; color: #5b6b68; }
+    .nav-links a { transition: color .18s; } .nav-links a:hover { color: var(--green); }
+    .nav-cta { border: 1px solid #bdd6c9; border-radius: 100px; padding: 9px 17px; background: white; color: var(--green) !important; }
+    main { overflow: hidden; }
+    .hero { padding-block: 105px 96px; display: grid; grid-template-columns: 1.08fr .92fr; gap: 70px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; font-size: 12px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; color: var(--green); }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; background: #399e72; border-radius: 50%; }
+    .hero h1 { font-size: clamp(43px, 5.4vw, 73px); letter-spacing: -.075em; line-height: 1.18; font-weight: 820; margin: 25px 0; }
+    .hero h1 em { font-style: normal; color: var(--green); }
+    .hero-desc { max-width: 540px; color: var(--muted); font-size: 16px; line-height: 1.95; margin: 0 0 34px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 14px 21px; border-radius: 12px; font-size: 13px; font-weight: 750; transition: transform .17s, background .17s, box-shadow .17s; }
+    .btn:hover { transform: translateY(-3px); } .btn:active { transform: translateY(0) scale(.98); }
+    .btn-primary { color: white; background: var(--green); box-shadow: 0 11px 24px #17695526; }
+    .btn-primary:hover { background: var(--green-dark); }
+    .btn-secondary { border: 1px solid var(--line); background: white; }
+    .visual { min-height: 475px; position: relative; display: grid; place-items: center; }
+    .visual-base { width: 100%; aspect-ratio: 1 / 1; max-width: 480px; border-radius: 50% 50% 46% 46%; background: radial-gradient(circle at 28% 24%, #f5fcf6 0, #e2f0e6 45%, #c6ded1 100%); position: relative; display: grid; place-items: center; overflow: hidden; }
+    .visual-base::before { content: ""; width: 70%; height: 70%; border: 1px solid rgba(22,105,85,.20); border-radius: 50%; position: absolute; }
+    .visual-base::after { content: ""; width: 88%; height: 88%; border: 1px solid rgba(22,105,85,.13); border-radius: 50%; position: absolute; }
+    .visual-symbol { color: var(--green); width: 57%; max-width: 260px; height: auto; filter: drop-shadow(0 14px 18px #17695517); z-index: 1; }
+    .float-card { position: absolute; background: rgba(255,255,255,.94); border: 1px solid #e1e9e2; box-shadow: var(--shadow); border-radius: 17px; padding: 16px 19px; z-index: 2; }
+    .float-card small { display: block; font-size: 10px; color: #76847e; letter-spacing: .09em; font-weight: 800; margin-bottom: 2px; }
+    .float-card strong { font-size: 14px; letter-spacing: -.03em; }
+    .float-one { top: 20%; left: -3%; } .float-two { bottom: 15%; right: -5%; }
+    .strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #f2f5f1; }
+    .strip-inner { display: grid; grid-template-columns: repeat(3, 1fr); padding-block: 25px; }
+    .strip-item { padding-left: 32px; border-left: 1px solid #d6dfd8; }
+    .strip-item:first-child { padding-left: 0; border: 0; }
+    .strip-item span { color: #7b8983; font-size: 11px; letter-spacing: .08em; font-weight: 800; display: block; margin-bottom: 4px; }
+    .strip-item strong { font-weight: 770; font-size: 17px; }
+    section { scroll-margin-top: 110px; }
+    .section { padding-block: 105px; }
+    .section-header { margin-bottom: 37px; }
+    .section-header h2 { font-size: clamp(28px,3vw,39px); letter-spacing: -.055em; line-height: 1.32; margin: 13px 0 10px; }
+    .section-header p { color: var(--muted); max-width: 650px; font-size: 14px; margin: 0; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .about-feature { background: var(--green-dark); color: white; padding: 42px; border-radius: 21px; min-height: 292px; display: flex; flex-direction: column; justify-content: space-between; }
+    .about-feature .icon-circle { display: grid; place-items: center; width: 49px; height: 49px; border-radius: 15px; background: #ffffff1a; font-size: 24px; }
+    .about-feature p { font-size: clamp(20px, 2.4vw, 28px); font-weight: 750; line-height: 1.6; letter-spacing: -.04em; margin: 24px 0 0; }
+    .about-feature p span { color: #a3d5bf; }
+    .about-detail { border: 1px solid var(--line); background: white; border-radius: 21px; padding: 36px; display: flex; flex-direction: column; justify-content: center; }
+    .detail-row { display: grid; grid-template-columns: 110px 1fr; gap: 10px; padding: 19px 0; border-bottom: 1px solid #edf1ed; align-items: start; }
+    .detail-row:last-child { border: 0; }
+    .detail-row b { color: #89978f; font-size: 12px; font-weight: 700; }
+    .detail-row span { font-size: 15px; font-weight: 720; }
+    .work-section { background: #edf3ed; padding-block: 105px; }
+    .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .work-card { padding: 32px 27px; border: 1px solid #dce7dd; background: #fff; border-radius: 19px; min-height: 267px; transition: transform .2s, box-shadow .2s; }
+    .work-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .work-icon { font-size: 25px; display: grid; place-items: center; width: 51px; height: 51px; background: #e8f3ec; border-radius: 15px; margin-bottom: 29px; }
+    .work-card h3 { margin: 0 0 10px; font-size: 18px; letter-spacing: -.04em; }
+    .work-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.9; }
+    .career-layout { display: grid; grid-template-columns: 330px 1fr; gap: 70px; }
+    .career-aside { color: var(--muted); font-size: 14px; }
+    .timeline { border-left: 1px solid #cadbd1; margin-left: 9px; }
+    .timeline-item { padding: 0 0 37px 34px; position: relative; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before { content: ""; position: absolute; left: -7px; top: 5px; background: var(--green); border: 3px solid var(--bg); width: 13px; height: 13px; border-radius: 50%; box-shadow: 0 0 0 1px #8dbba5; }
+    .timeline-item small { font-size: 11px; letter-spacing: .12em; font-weight: 800; color: var(--green); }
+    .timeline-item h3 { margin: 6px 0 8px; font-size: 20px; letter-spacing: -.04em; }
+    .timeline-item p { margin: 0; color: var(--muted); font-size: 14px; }
+    .project-section { padding-block: 100px 120px; }
+    .project-top { display: flex; justify-content: space-between; align-items: end; gap: 20px; }
+    .project-hint { font-size: 12px; color: var(--muted); margin-bottom: 37px; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .project-card { display: flex; flex-direction: column; min-height: 245px; padding: 29px; border-radius: 20px; border: 1px solid #d6e2d9; background: #fff; transition: transform .2s, border-color .2s, box-shadow .2s; }
+    .project-card:hover { transform: translateY(-6px); border-color: #78ad91; box-shadow: var(--shadow); }
+    .project-card:active { transform: translateY(-1px) scale(.99); }
+    .project-topline { display: flex; align-items: center; justify-content: space-between; }
+    .project-number { font-size: 50px; font-weight: 800; letter-spacing: -.09em; line-height: 1; color: var(--green); }
+    .project-arrow { font-size: 24px; color: var(--green); transition: transform .2s; }
+    .project-card:hover .project-arrow { transform: translate(4px, -4px); }
+    .project-body { margin-top: auto; }
+    .project-body b { font-size: 16px; display: block; margin-bottom: 6px; }
+    .project-body span { font-size: 12px; color: var(--muted); }
+    .footer { border-top: 1px solid var(--line); background: #f0f4ef; }
+    .footer-inner { padding-block: 34px; display: flex; justify-content: space-between; gap: 20px; font-size: 12px; color: #829087; }
+    .footer-inner strong { color: var(--green-dark); font-size: 13px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 22px; padding-block: 70px; }
+      .visual { min-height: 340px; max-width: 470px; width: 100%; margin: auto; }
+      .visual-base { max-width: 350px; } .float-one { left: 2%; } .float-two { right: 2%; }
+      .career-layout { grid-template-columns: 1fr; gap: 23px; }
+      .work-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 600px) {
+      .wrap { width: min(100% - 36px, 1180px); }
+      .nav { min-height: 66px; }
+      .nav-links { gap: 14px; font-size: 12px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-cta { padding: 7px 12px; }
+      .hero { padding-top: 60px; padding-bottom: 55px; }
+      .hero h1 { font-size: clamp(40px, 11vw, 56px); margin-block: 19px; }
+      .hero-desc { font-size: 14px; }
+      .visual { min-height: 295px; } .visual-base { max-width: 285px; }
+      .float-card { padding: 10px 12px; border-radius: 12px; }
+      .float-card small { font-size: 9px; } .float-card strong { font-size: 11px; }
+      .float-one { left: 0; } .float-two { right: 0; }
+      .strip-inner { grid-template-columns: 1fr; gap: 15px; padding-block: 23px; }
+      .strip-item { padding: 0 0 15px; border-left: 0; border-bottom: 1px solid #d6dfd8; }
+      .strip-item:last-child { border: 0; padding-bottom: 0; }
+      .strip-item strong { font-size: 15px; }
+      .section, .work-section { padding-block: 72px; }
+      .about-grid, .work-grid, .project-grid { grid-template-columns: 1fr; }
+      .about-feature { min-height: 235px; padding: 29px; }
+      .about-detail { padding: 22px; }
+      .detail-row { grid-template-columns: 85px 1fr; }
+      .work-card { min-height: 220px; }
+      .project-section { padding-block: 74px 85px; }
+      .project-top { display: block; }
+      .project-hint { margin: -5px 0 25px; }
+      .project-card { min-height: 185px; }
+      .footer-inner { flex-direction: column; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="홈으로 이동"><span class="brand-mark" aria-hidden="true">✳</span> PUBLIC HEALTH <span style="color:#88a89a">/ PORTFOLIO</span></a>
+      <nav class="nav-links" aria-label="주요 메뉴">
+        <a href="#about">소개</a><a href="#work">담당 업무</a><a href="#career">경력</a><a class="nav-cta" href="#projects">연결 페이지 ↗</a>
+      </nav>
+    </div>
+  </header>
+  <main id="home">
+    <div class="wrap hero">
+      <div>
+        <span class="eyebrow">Public Service · Health & Wellbeing</span>
+        <h1>사람의 건강을 넘어,<br><em>마음의 건강까지.</em></h1>
+        <p class="hero-desc">안녕하세요. 지역사회 주민의 건강한 일상을 위해 일하는 보건소 소속 공무원입니다. 의료 분야의 실무 경험을 바탕으로, 현재는 정신보건 업무를 총괄하며 더 촘촘한 공공보건 서비스를 고민합니다.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#about">저를 소개합니다 <span aria-hidden="true">↗</span></a><a class="btn btn-secondary" href="#projects">연결 페이지 보기 <span aria-hidden="true">→</span></a></div>
+      </div>
+      <div class="visual" aria-label="지역사회 건강을 상징하는 일러스트">
+        <div class="visual-base">
+          <svg class="visual-symbol" viewBox="0 0 240 240" role="img" aria-labelledby="ill-title" xmlns="http://www.w3.org/2000/svg"><title id="ill-title">마음을 품은 손과 십자 심볼</title>
+            <circle cx="120" cy="120" r="77" fill="#fff" fill-opacity=".63"/>
+            <path d="M120 151c-42-27-58-46-58-67 0-18 13-31 30-31 13 0 22 7 28 17 6-10 15-17 28-17 17 0 30 13 30 31 0 21-16 40-58 67Z" fill="#218468"/>
+            <path d="M120 86v30M105 101h30" stroke="white" stroke-width="9" stroke-linecap="round"/>
+            <path d="M47 158c20-12 34-11 51 1l17 13c7 6 16 4 20 0l28-23c11-8 22-4 23 5 1 5-3 11-8 15l-45 34c-8 6-17 8-28 5l-35-9-23 7" fill="#c0e3d1" stroke="#176955" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="float-card float-one"><small>MY WORK</small><strong>정신보건 업무 총괄</strong></div>
+        <div class="float-card float-two"><small>MY PERSPECTIVE</small><strong>건강 · 신뢰 · 공공성</strong></div>
+      </div>
+    </div>
+    <div class="strip"><div class="wrap strip-inner">
+      <div class="strip-item"><span>ORGANIZATION</span><strong>보건소</strong></div>
+      <div class="strip-item"><span>CURRENT ROLE</span><strong>정신보건총괄</strong></div>
+      <div class="strip-item"><span>EXPERIENCE</span><strong>식품 · 의료 · 정신보건</strong></div>
+    </div></div>
+    <section class="section wrap" id="about">
+      <div class="section-header"><span class="eyebrow">01 · About Me</span><h2>현장 경험을 바탕으로<br>공공의 가치를 실현합니다.</h2><p>다양한 보건 분야를 경험하며 쌓아온 시각으로 주민 중심의 행정을 지향합니다.</p></div>
+      <div class="about-grid">
+        <div class="about-feature"><div class="icon-circle" aria-hidden="true">✳</div><p>건강한 지역사회를 위한 일은<br><span>사람을 이해하는 것</span>에서<br>시작된다고 믿습니다.</p></div>
+        <div class="about-detail">
+          <div class="detail-row"><b>직업</b><span>공무원</span></div>
+          <div class="detail-row"><b>소속</b><span>보건소</span></div>
+          <div class="detail-row"><b>담당 업무</b><span>정신보건 업무 총괄</span></div>
+          <div class="detail-row"><b>주요 경험</b><span>식품 분야 · 의료 분야</span></div>
+          <div class="detail-row"><b>업무 가치</b><span>책임감 · 협력 · 주민 중심</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="work-section" id="work"><div class="wrap">
+      <div class="section-header"><span class="eyebrow">02 · What I Do</span><h2>주요 담당 업무</h2><p>정신건강 관련 업무의 원활한 추진을 위해 사업과 행정의 연결을 고민합니다.</p></div>
+      <div class="work-grid">
+        <article class="work-card"><div class="work-icon" aria-hidden="true">◎</div><h3>정신보건 업무 총괄</h3><p>정신보건 분야의 업무 전반을 조정하고 관련 현안을 종합적으로 살펴봅니다.</p></article>
+        <article class="work-card"><div class="work-icon" aria-hidden="true">⌘</div><h3>사업 및 행정 조정</h3><p>정책 방향과 현장 수요를 고려하여 업무 계획과 운영 과제를 관리합니다.</p></article>
+        <article class="work-card"><div class="work-icon" aria-hidden="true">♡</div><h3>지역사회 협력</h3><p>주민에게 필요한 보건 서비스가 연결될 수 있도록 관계 기관과의 협업을 중시합니다.</p></article>
+      </div>
+    </div></section>
+    <section class="section wrap" id="career"><div class="career-layout">
+      <div><div class="section-header"><span class="eyebrow">03 · Experience</span><h2>다양한 분야에서<br>쌓아온 경험</h2></div><p class="career-aside">식품과 의료 영역에서 얻은 경험을 정신보건 업무에 연결해 폭넓은 관점으로 공공보건을 바라봅니다.<br><br>※ 아래 경력은 분야 중심으로 정리했으며, 세부 근무 기간과 직책은 추후 추가할 수 있습니다.</p></div>
+      <div class="timeline">
+        <div class="timeline-item"><small>CURRENT</small><h3>정신보건 분야</h3><p>보건소 정신보건 관련 업무 총괄</p></div>
+        <div class="timeline-item"><small>PREVIOUS EXPERIENCE</small><h3>의료 분야</h3><p>의료 관련 행정 및 현장 업무 경험</p></div>
+        <div class="timeline-item"><small>PREVIOUS EXPERIENCE</small><h3>식품 분야</h3><p>식품 관련 행정 및 현장 업무 경험</p></div>
+      </div>
+    </div></section>
+    <section class="project-section wrap" id="projects">
+      <div class="project-top"><div class="section-header"><span class="eyebrow">04 · Explore More</span><h2>더 알아보기</h2><p>추후 세부 소개 페이지를 추가할 수 있도록 세 개의 연결 버튼을 준비했습니다.</p></div><span class="project-hint">카드를 클릭하면 해당 HTML 페이지로 이동합니다.</span></div>
+      <div class="project-grid">
+        <a class="project-card" href="1.html" aria-label="1번 페이지로 이동"><div class="project-topline"><span class="project-number">1</span><span class="project-arrow" aria-hidden="true">↗</span></div><div class="project-body"><b>페이지 01</b><span>1.html · 향후 콘텐츠 연결</span></div></a>
+        <a class="project-card" href="2.html" aria-label="2번 페이지로 이동"><div class="project-topline"><span class="project-number">2</span><span class="project-arrow" aria-hidden="true">↗</span></div><div class="project-body"><b>페이지 02</b><span>2.html · 향후 콘텐츠 연결</span></div></a>
+        <a class="project-card" href="3.html" aria-label="3번 페이지로 이동"><div class="project-topline"><span class="project-number">3</span><span class="project-arrow" aria-hidden="true">↗</span></div><div class="project-body"><b>페이지 03</b><span>3.html · 향후 콘텐츠 연결</span></div></a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="wrap footer-inner"><strong>PUBLIC HEALTH / PORTFOLIO</strong><span>지역사회와 함께, 더 건강한 내일을 위해.</span></div></footer>
+</body>
+</html>
